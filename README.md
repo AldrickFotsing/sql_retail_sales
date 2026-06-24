@@ -144,7 +144,7 @@ ORDER BY category DESC
 SELECT 
 	ROUND(AVG(age), 2) AS "Age moyen"
 FROM retail_sales
-WHERE category = 'Clothing';
+WHERE category = 'Beauty';
 ```
 
 * Q.5 Écrire une requête SQL pour trouver toutes les transactions où le montant total des ventes est supérieur à 1000
@@ -203,13 +203,21 @@ GROUP BY 1;
 
 * Q.10 Écrire une requête SQL pour définir chaque tranche horaire et le nombre de commandes associé. Exemple : Matin <= 12h, Après-midi Entre 12h et 17h, Soir > 17h
 ```sql
-SELECT *,
-	CASE 
-		WHEN EXTRACT(HOUR FROM sale_time) < 12 THEN 'Matin'
-		WHEN EXTRACT(HOUR FROM sale_time) BETWEEN 12 AND 17 THEN 'Après-midi'
-		ELSE 'Soir'	
-	END as shift
-FROM retail_sales;
+WITH hourly_sale AS (
+    SELECT 
+        CASE 
+            WHEN EXTRACT(HOUR FROM sale_time) < 12 THEN 'Matin'
+            WHEN EXTRACT(HOUR FROM sale_time) BETWEEN 12 AND 17 THEN 'Après-midi'
+            ELSE 'Soir'    
+        END as shift
+    FROM retail_sales
+)
+SELECT 
+    shift, 
+    COUNT(*) AS "Nombre de commandes"
+FROM hourly_sale
+GROUP BY shift
+ORDER BY "Nombre de commandes" DESC;
 
 -- Fin du projet
 ```
