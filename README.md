@@ -226,3 +226,9 @@ Ce projet m'a permis de valider des compétences clés en SQL intermédiaire :
 
 - **Logique Conditionnelle** : Création de segments personnalisés avec CASE WHEN.
 
+---
+
+## 👤 Auteur
+**MOUAFO FOTSING FRANCK ALDRICK** 
+*Junior Data Scientist & Analyst* 
+[LinkedIn](https://www.linkedin.com/in/aldrick-fotsing-81a287370/)
