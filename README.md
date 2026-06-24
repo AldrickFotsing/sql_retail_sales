@@ -82,7 +82,7 @@ WHERE
 	OR 
 	total_sale IS NULL;
 
-/*
+
 ```
 
 ---
@@ -100,7 +100,7 @@ SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
 -- Quels sont nos differentes categories de produits
 SELECT DISTINCT category FROM retail_sales;
 
-/*
+
 ```
 
 ---
